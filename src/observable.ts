@@ -185,6 +185,13 @@ export class BasicObservable<T> implements Observable<T> {
     this._checkForSealedMutationError();
     this._state = 'unsealed';
   }
+
+  /**
+   * Fork the observable, creating a new observable with the same value and options
+   */
+  fork() {
+    return new BasicObservable(this._value, this._options);
+  }
 }
 
 export class InputElementObservable extends BasicObservable<string> {

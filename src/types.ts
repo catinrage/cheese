@@ -20,6 +20,7 @@ export interface Observable<T = any> {
   seal: () => void;
   mute: () => void;
   unmute: () => void;
+  fork: () => Observable<T>;
 }
 
 export type InferObservableType<T extends Observable> = T extends Observable<
